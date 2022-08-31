@@ -1,0 +1,11 @@
+{{#if messages}}
+    <ul class="listChat">
+        {{#each messages}}
+            <li>
+                # <span class="email">{{ this.email }}</span> <span class="create_at">[{{this.create_at}}]</span> : <span class="mensaje">{{ this.mensaje }}</span>   
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+   <h4 class="text-center">Sin mensajes</h4> 
+{{/if}}

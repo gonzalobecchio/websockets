@@ -1,0 +1,37 @@
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-content-center py-4">
+            <h3>Listado Productos</h3>
+            <hr>
+        </div>
+        <div class="row justify-content-center align-content-center header-table">
+            {{!-- <div class="col-2">#</div> --}}
+            <div class="col-4">Nombre</div>
+            <div class="col-4 text-center">Precio</div>
+            <div class="col text-center">Imagen</div>
+        </div>
+        {{#if message}}
+            <div class="row justify-content-center align-content-center py-2 rows-table">
+                <h3 class="text-center">
+                    {{message}}
+                </h3>
+            </div>
+        {{else}}
+            {{#each productos}}
+                <div class="row justify-content-center align-content-center py-2 rows-table">
+                    {{!-- <div class="col-2 d-flex align-items-center ">
+                        {{this.id}}
+                    </div> --}}
+                    <div class="col-4 d-flex align-items-center ">
+                        {{this.title}}
+                    </div>
+                    <div class="col-4 d-flex align-items-center ">
+                        ${{this.price}}
+                    </div>
+                    <div class="col text-center">
+                        <img src={{this.file}} height="50" width="50"> 
+                    </div>
+                </div>
+            {{/each}}
+        {{/if}}
+    </div>

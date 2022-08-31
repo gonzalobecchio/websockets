@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor de plantilla Handlebars</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row d-flex align-item-center justify-content-center">
+                    <form id="form">
+                        <div class="my-3">
+                            {{#if messageSuccess }}
+                            <div class="alert alert-success">
+                                {{ messageSuccess }}
+                            </div>
+                            {{/if}}
+                            <div class="alert alert-warning p-1 mt-1" {{#if errores}} {{else}} hidden {{/if}}>
+                                <ul>
+                                    {{#if errores}}
+                                    {{#each errores}}
+                                    <li>{{this.err}}</li>
+                                    {{/each}}
+                                    {{/if}}
+                                </ul>
+                            </div>
+                        </div>
+                        <h3>Agregar Producto</h3>
+                        <hr>
+                        <div class="mb-2">
+                            <label for="">Nombre *</label>
+                            <input type="text" name="title" class="form-control"
+                                value="{{#if prodVal }}{{prodVal/title}}{{/if}}" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="">Precio *</label>
+                            <input type="text" name="price" class="form-control"
+                                value="{{#if prodVal }}{{prodVal/price}}{{/if}}" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="">Foto URL *</label>
+                            <input type="text" name="file" id="file" class="form-control" required>
+                        </div>
+                        <input type="submit" value="Save" class="boton">
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="content-table"></div>
+            </div>
+        </div>
+
+        <hr class="linea">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="my-3">Chat</h3>
+                <hr>
+                <form id="chat">
+                    <div class="mb-2">
+                        <div class="alert alert-warning" id="errorEmail" hidden></div>
+                        <label for="">Email *</label>
+                        <input type="text" class="form-control" name="email" placeholder="unemail@esun.com">
+                    </div>
+                    <div class="mb-2">
+                        <div class="alert alert-warning" id="errorMessage" hidden></div>
+                        <label for="">Mensaje *</label>
+                        <input type="text" class="form-control" name="mensaje" placeholder="Escribir un mensaje">
+                    </div>
+                    <input type="submit" value="enviar" class="boton">
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h3 class="my-3">Mensajes</h3>
+                <hr>
+                <div class="container-msjes" id="container-msg"></div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
